@@ -4,8 +4,8 @@ MAINTAINER Simon Erhardt <hello@rootlogin.ch>
 RUN apk add --update \
   bash \
   curl \
-  ssh \
+  openssh \
   && rm -rf /var/cache/apk/*
 
 EXPOSE 22
-ENTRYPOINT ["/bin/sshd"]
+ENTRYPOINT ["/usr/sbin/sshd"]
