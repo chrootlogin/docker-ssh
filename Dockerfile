@@ -7,5 +7,8 @@ RUN apk add --update \
   openssh \
   && rm -rf /var/cache/apk/*
 
+COPY bin/run.sh /usr/local/bin/run.sh
+RUN chmod +x /usr/local/bin/run.sh
+
 EXPOSE 22
-ENTRYPOINT ["/usr/sbin/sshd"]
+ENTRYPOINT ["/usr/local/bin/run.sh"]
